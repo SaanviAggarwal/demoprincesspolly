@@ -1,16 +1,16 @@
 //main file
 
-// ---------- PAGE SYSTEM ----------
+//
 
 String currentPage = "index";
 
-// ---------- MONEY + TIMER ----------
+// money and timer
 
 int money = 100;
 
 int dayTime = 1800; // 30 mins
 
-// ---------- STORE BUTTON SIZE ----------
+// button size
 
 int storeW = 170;
 int storeH = 120;
