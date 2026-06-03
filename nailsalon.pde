@@ -1,5 +1,4 @@
-
-PImage handsImg;
+ PImage handsImg;
 PImage feetImg;
 
 PImage nailClipperImg;
@@ -12,7 +11,6 @@ PImage greenBottle;
 PImage yellowBottle;
 PImage purpleBottle;
 PImage pinkBottle;
-
 
 String salonChoice = "";
 
@@ -37,14 +35,12 @@ void drawSalonPage()
   background(255,220,230);
 
   drawWallet();
-
   drawTimer();
-
   drawHomeButton();
 
   fill(255);
 
-  rect(width/2,50,500,70,20); //https://processing.org/reference/rect_.html
+  rect(width/2,50,500,70,20);
 
   fill(0);
 
@@ -66,13 +62,11 @@ void drawSalonPage()
 
 //choice
 
-//https://processing.org/reference/draw_.html 
 void drawChoicePage()
 {
   fill(255);
 
   rect(320,350,300,350,20);
-
   rect(880,350,300,350,20);
 
   fill(0);
@@ -80,7 +74,6 @@ void drawChoicePage()
   textSize(32);
 
   text("HANDS",320,170);
-
   text("FEET",880,170);
 
   image(handsImg,
@@ -103,25 +96,30 @@ void drawChoicePage()
 }
 
 //game
-//https://processing.org/reference/draw_.html
+
 void drawSalonGame()
 {
-  if(salonChoice.equals("hands"))
-  {
-    image(handsImg,
-          width/2,
-          320,
-          500,
-          350);
-  }
+  // graphics during file and clip
 
-  if(salonChoice.equals("feet"))
+  if(!clipped || !filed)
   {
-    image(feetImg,
-          width/2,
-          320,
-          500,
-          350);
+    if(salonChoice.equals("hands"))
+    {
+      image(handsImg,
+            width/2,
+            320,
+            500,
+            350);
+    }
+
+    if(salonChoice.equals("feet"))
+    {
+      image(feetImg,
+            width/2,
+            320,
+            500,
+            350);
+    }
   }
 
   // CLIPPING
@@ -138,18 +136,16 @@ void drawSalonGame()
 
     image(nailClipperImg, mouseX, mouseY, 180, 180);
 
-    if(mousePressed &&
-       !clippingStarted)
+    if(mousePressed && !clippingStarted)
     {
-      clipTimer = millis(); // https://processing.org/reference/millis_.html
-
+      clipTimer = millis();
       clippingStarted = true;
     }
 
     if(clippingStarted)
     {
       int secondsLeft =
-      max(0,5-(millis()-clipTimer)/1000); //https://processing.org/reference/max_.html
+      max(0,5-(millis()-clipTimer)/1000);
 
       text(secondsLeft,
            width/2,
@@ -162,7 +158,6 @@ void drawSalonGame()
         if(!clipMoney)
         {
           money += 2;
-
           clipMoney = true;
         }
       }
@@ -177,23 +172,22 @@ void drawSalonGame()
 
     textSize(28);
 
-    text("Hold mouse for 5 seconds to file nails", width/2,100);
+    text("Hold mouse for 5 seconds to file nails",
+         width/2,
+         100);
 
     image(nailFileImg,mouseX,mouseY,80,180);
 
-    if(mousePressed &&
-       !filingStarted)
+    if(mousePressed && !filingStarted)
     {
       fileTimer = millis();
-
       filingStarted = true;
     }
 
     if(filingStarted)
     {
       int secondsLeft =
-      max(0,
-      5-(millis()-fileTimer)/1000);
+      max(0,5-(millis()-fileTimer)/1000);
 
       text(secondsLeft,
            width/2,
@@ -206,7 +200,6 @@ void drawSalonGame()
         if(!fileMoney)
         {
           money += 2;
-
           fileMoney = true;
         }
       }
@@ -234,25 +227,34 @@ void drawSalonGame()
     ellipse(670,340,40,70);
 
     image(redBottle,180,620,100,130);
-
     image(blueBottle,340,620,100,130);
-
     image(greenBottle,500,620,100,130);
-
     image(yellowBottle,660,620,100,130);
-
     image(purpleBottle,820,620,100,130);
-
     image(pinkBottle,980,620,100,130);
   }
 }
 
 //mouse
 
-void salonMousePressed() //https://processing.org/reference/mousePressed_.html
+void salonMousePressed()
 {
   if(homePressed())
   {
+    // Reset
+    salonChoice = "";
+
+    clipped = false;
+    filed = false;
+
+    clipMoney = false;
+    fileMoney = false;
+
+    clippingStarted = false;
+    filingStarted = false;
+
+    nailColor = color(255,150,200);
+
     currentPage = "index";
     return;
   }
@@ -277,7 +279,7 @@ void salonMousePressed() //https://processing.org/reference/mousePressed_.html
   }
 
   if(clipped && filed)
-  { //https://processing.org/reference/if.html
+  {
     if(dist(mouseX,mouseY,180,620) < 60)
       nailColor = color(255,0,0);
 
