@@ -1,4 +1,3 @@
-// =====================================================
 // Store graphics
 PImage salonImg;
 PImage petShopImg;
@@ -8,7 +7,6 @@ PImage bedroomImg;
 PImage carWashImg;
 PImage airportImg;
 PImage profilePageImg;
-// =====================================================
 
 boolean showInfo = false;
 
@@ -46,15 +44,84 @@ void drawIndexPage()
 
   noStroke();
 
-  // INFO BUTTON (NEW)
+  // INFO BUTTON (FIXED POSITION - NO OVERLAP WITH TIMER)
   fill(255);
-  rect(width - 80, 60, 120, 40, 15);
+  rect(width - 80, 120, 120, 40, 15);
 
   fill(0);
   textSize(18);
-  text("INFO", width - 80, 60);
+  text("INFO", width - 80, 120);
 
-  // INFO POPUp
+  // WALLET
+  fill(255,240,180);
+  rect(120,650,200,50,20);
+
+  fill(0);
+  textSize(24);
+  text("$ " + money,
+       120,
+       650);
+
+  // TIMER (unchanged)
+  int minutes = dayTime/60;
+  int seconds = dayTime%60;
+
+  String timerText =
+  nf(minutes,2) + ":" + nf(seconds,2);
+
+  fill(255);
+  rect(1050,50,180,50,20);
+
+  fill(0);
+  text(timerText,
+       1050,
+       50);
+
+  // =========================
+  // SHOPS (HIDDEN WHEN INFO OPEN)
+  // =========================
+
+  if(!showInfo)
+  {
+    image(salonImg,
+          200,
+          230,
+          200,
+          220);
+
+    image(petShopImg,
+          450,
+          180,
+          220,
+          220);
+
+    image(iceCreamImg,
+          780,
+          250,
+          170,
+          150);
+
+    image(restaurantImg,
+          1000,
+          220,
+          275,
+          250);
+
+    image(carWashImg,
+          950,
+          500,
+          200,
+          175);
+
+    image(airportImg,
+          300,
+          450,
+          300,
+          250);
+  }
+
+ //info
+
   if(showInfo)
   {
     fill(0, 0, 0, 180);
@@ -74,104 +141,36 @@ void drawIndexPage()
     textSize(18);
 
     text("Explore stores and earn money\n\n" +
-         "Nail Salon: clip, file, paint nails\n" +
-         " Restaurant: build full meals\n" +
-         " Pet Store: buy pets & items\n" +
-         " Ice Cream Shop: match customer orders\n" +
-         " Car Wash: clean cars step by step\n" +
-         " Airport: unlock new world\n\n" +
+         " Nail Salon: clip, file, paint nails\n" +
+         "Restaurant: build full meals\n" +
+         "Pet Store: buy pets & items\n" +
+         " Ice Cream Shop: match orders\n" +
+         "Car Wash: clean cars step by step\n" +
+         "Airport: unlock new world\n\n" +
          "Click HOME anytime to return",
          width/2,
          height/2);
   }
-
-  // Wallet
-
-  fill(255,240,180);
-
-  rect(120,650,200,50,20);
-
-  fill(0);
-
-  textSize(24);
-
-  text("$ " + money,
-       120,
-       650);
-
-  // Timer
-
-  int minutes = dayTime/60;
-
-  int seconds = dayTime%60;
-
-  String timerText =
-  nf(minutes,2) + ":" + nf(seconds,2);
-
-  fill(255);
-
-  rect(1050,50,180,50,20);
-
-  fill(0);
-
-  text(timerText,
-       1050,
-       50);
-
-  // Buildings
-
-  image(salonImg,
-        200,
-        230,
-        200,
-        220);
-
-  image(petShopImg,
-        450,
-        180,
-        220,
-        220);
-
-  image(iceCreamImg,
-        780,
-        250,
-        170,
-        150);
-
-  image(restaurantImg,
-        1000,
-        220,
-        275,
-        250);
-
-  image(carWashImg,
-        950,
-        500,
-        200,
-        175);
-
-  image(airportImg,
-        300,
-        450,
-        300,
-        250);
 }
 
 //click
 
 void indexMousePressed()
 {
-  // INFO BUTTON CLICK (NEW)
-  if(mouseX > width - 140 &&
-     mouseX < width - 20 &&
-     mouseY > 40 &&
-     mouseY < 80)
+  // INFO BUTTON CLICK (ONLY ON INDEX)
+  if(currentPage.equals("index"))
   {
-    showInfo = !showInfo;
-    return;
+    if(mouseX > width - 140 &&
+       mouseX < width - 20 &&
+       mouseY > 100 &&
+       mouseY < 140)
+    {
+      showInfo = !showInfo;
+      return;
+    }
   }
 
-  // CLOSE INFO IF OPEN AND CLICK OUTSIDE
+  // CLOSE INFO IF OPEN (ANY CLICK OUTSIDE)
   if(showInfo)
   {
     showInfo = false;
