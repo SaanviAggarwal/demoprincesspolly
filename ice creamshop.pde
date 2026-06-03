@@ -1,4 +1,13 @@
-//ice cream store
+// =====================================================
+// icecream Store Variables 
+PImage cone; 
+PImage cup; 
+PImage vanilla; 
+PImage chocolate; 
+PImage strawberry; 
+PImage mango; 
+PImage lime; 
+// =====================================================
 
 String icecreamPage = "container";
 
@@ -10,7 +19,10 @@ int icecreamReward = 0;
 
 boolean orderCompleted = false;
 
-//draw
+// =====================================================
+// DRAW PAGE
+// =====================================================
+
 void drawIcecreamStore()
 {
   background(255,200,230);
@@ -57,7 +69,9 @@ void drawIcecreamStore()
   }
 }
 
-//container
+// =====================================================
+// CONTAINER PAGE
+// =====================================================
 
 void drawContainerPage()
 {
@@ -92,7 +106,9 @@ void drawContainerPage()
        520);
 }
 
-//flavour
+// =====================================================
+// FLAVOR PAGE
+// =====================================================
 
 void drawFlavorPage()
 {
@@ -125,7 +141,9 @@ void drawFlavorPage()
   image(lime,1050,420,150,150);
 }
 
-//complete
+// =====================================================
+// COMPLETE PAGE
+// =====================================================
 
 void drawCompletePage()
 {
@@ -162,7 +180,9 @@ void drawCompletePage()
        500);
 }
 
-// randommmm
+// =====================================================
+// RANDOM ORDER
+// =====================================================
 
 void generateOrder()
 {
@@ -191,7 +211,9 @@ void generateOrder()
   }
 }
 
-// check for flavour?
+// =====================================================
+// CHECK FLAVOR
+// =====================================================
 
 void checkFlavor(String flavor)
 {
@@ -213,7 +235,9 @@ void checkFlavor(String flavor)
   }
 }
 
-//mouse
+// =====================================================
+// MOUSE
+// =====================================================
 
 void icecreamStoreMousePressed()
 {
