@@ -1,4 +1,4 @@
-// =====================================================
+
 PImage handsImg;
 PImage feetImg;
 
@@ -12,7 +12,7 @@ PImage greenBottle;
 PImage yellowBottle;
 PImage purpleBottle;
 PImage pinkBottle;
-// =====================================================
+
 
 String salonChoice = "";
 
@@ -30,9 +30,7 @@ boolean filingStarted = false;
 
 color nailColor = color(255,150,200);
 
-// =====================================================
-// DRAW PAGE
-// =====================================================
+//draw
 
 void drawSalonPage()
 {
@@ -46,7 +44,7 @@ void drawSalonPage()
 
   fill(255);
 
-  rect(width/2,50,500,70,20);
+  rect(width/2,50,500,70,20); //https://processing.org/reference/rect_.html
 
   fill(0);
 
@@ -66,10 +64,9 @@ void drawSalonPage()
   }
 }
 
-// =====================================================
-// CHOICE PAGE
-// =====================================================
+//choice
 
+//https://processing.org/reference/draw_.html 
 void drawChoicePage()
 {
   fill(255);
@@ -105,10 +102,8 @@ void drawChoicePage()
        620);
 }
 
-// =====================================================
-// GAME
-// =====================================================
-
+//game
+//https://processing.org/reference/draw_.html
 void drawSalonGame()
 {
   if(salonChoice.equals("hands"))
@@ -141,16 +136,12 @@ void drawSalonGame()
          width/2,
          100);
 
-    image(nailClipperImg,
-          mouseX,
-          mouseY,
-          180,
-          180);
+    image(nailClipperImg, mouseX, mouseY, 180, 180);
 
     if(mousePressed &&
        !clippingStarted)
     {
-      clipTimer = millis();
+      clipTimer = millis(); // https://processing.org/reference/millis_.html
 
       clippingStarted = true;
     }
@@ -158,8 +149,7 @@ void drawSalonGame()
     if(clippingStarted)
     {
       int secondsLeft =
-      max(0,
-      5-(millis()-clipTimer)/1000);
+      max(0,5-(millis()-clipTimer)/1000); //https://processing.org/reference/max_.html
 
       text(secondsLeft,
            width/2,
@@ -187,15 +177,9 @@ void drawSalonGame()
 
     textSize(28);
 
-    text("Hold mouse for 5 seconds to file nails",
-         width/2,
-         100);
+    text("Hold mouse for 5 seconds to file nails", width/2,100);
 
-    image(nailFileImg,
-          mouseX,
-          mouseY,
-          180,
-          180);
+    image(nailFileImg,mouseX,mouseY,80,180);
 
     if(mousePressed &&
        !filingStarted)
@@ -263,11 +247,9 @@ void drawSalonGame()
   }
 }
 
-// =====================================================
-// MOUSE
-// =====================================================
+//mouse
 
-void salonMousePressed()
+void salonMousePressed() //https://processing.org/reference/mousePressed_.html
 {
   if(homePressed())
   {
@@ -295,7 +277,7 @@ void salonMousePressed()
   }
 
   if(clipped && filed)
-  {
+  { //https://processing.org/reference/if.html
     if(dist(mouseX,mouseY,180,620) < 60)
       nailColor = color(255,0,0);
 
