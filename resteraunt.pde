@@ -1,5 +1,29 @@
 // =====================================================
-// RESTAURANT VARIABLES
+// Restaurant Variables 
+PImage snack1; 
+PImage snack2;
+PImage snack3;
+PImage snack4;
+PImage snack5;
+
+PImage mainCourse1; 
+PImage mainCourse2;
+PImage mainCourse3;
+PImage mainCourse4;
+PImage mainCourse5;
+
+PImage dessert1; 
+PImage dessert2; 
+PImage dessert3; 
+PImage dessert4; 
+PImage dessert5; 
+
+PImage drink1; 
+PImage drink2; 
+PImage drink3; 
+PImage drink4;
+PImage drink5;
+
 // =====================================================
 
 String restaurantPage = "snack";
