@@ -1,3 +1,15 @@
+// =====================================================
+// Store graphics
+PImage salonImg;
+PImage petShopImg;
+PImage iceCreamImg;
+PImage restaurantImg;
+PImage bedroomImg;
+PImage carWashImg;
+PImage airportImg;
+PImage profilePageImg;
+// =====================================================
+
 boolean showInfo = false;
 
 void drawIndexPage()
