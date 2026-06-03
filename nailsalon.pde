@@ -220,11 +220,17 @@ void drawSalonGame()
 
     fill(nailColor);
 
-    ellipse(430,330,40,70);
-    ellipse(490,300,40,70);
-    ellipse(550,285,40,70);
-    ellipse(610,300,40,70);
-    ellipse(670,340,40,70);
+    ellipse(230,330,40,70);
+    ellipse(290,300,40,70);
+    ellipse(350,285,40,70);
+    ellipse(410,300,40,70);
+    ellipse(470,340,40,70);
+    
+    ellipse(580,330,40,70);
+    ellipse(640,300,40,70);
+    ellipse(700,285,40,70);
+    ellipse(760,300,40,70);
+    ellipse(830,340,40,70);
 
     image(redBottle,180,620,100,130);
     image(blueBottle,340,620,100,130);
