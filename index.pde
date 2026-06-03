@@ -1,4 +1,4 @@
-//index
+boolean showInfo = false;
 
 void drawIndexPage()
 {
@@ -33,6 +33,45 @@ void drawIndexPage()
   ellipse(60,60,75,75);
 
   noStroke();
+
+  // INFO BUTTON (NEW)
+  fill(255);
+  rect(width - 80, 60, 120, 40, 15);
+
+  fill(0);
+  textSize(18);
+  text("INFO", width - 80, 60);
+
+  // INFO POPUp
+  if(showInfo)
+  {
+    fill(0, 0, 0, 180);
+    rect(width/2, height/2, width, height);
+
+    fill(255);
+    rect(width/2, height/2, 700, 400, 20);
+
+    fill(0);
+
+    textSize(28);
+
+    text("Welcome to Princess Polly World!",
+         width/2,
+         height/2 - 140);
+
+    textSize(18);
+
+    text("Explore stores and earn money\n\n" +
+         "Nail Salon: clip, file, paint nails\n" +
+         " Restaurant: build full meals\n" +
+         " Pet Store: buy pets & items\n" +
+         " Ice Cream Shop: match customer orders\n" +
+         " Car Wash: clean cars step by step\n" +
+         " Airport: unlock new world\n\n" +
+         "Click HOME anytime to return",
+         width/2,
+         height/2);
+  }
 
   // Wallet
 
@@ -110,6 +149,23 @@ void drawIndexPage()
 
 void indexMousePressed()
 {
+  // INFO BUTTON CLICK (NEW)
+  if(mouseX > width - 140 &&
+     mouseX < width - 20 &&
+     mouseY > 40 &&
+     mouseY < 80)
+  {
+    showInfo = !showInfo;
+    return;
+  }
+
+  // CLOSE INFO IF OPEN AND CLICK OUTSIDE
+  if(showInfo)
+  {
+    showInfo = false;
+    return;
+  }
+
   // Profile
 
   if(dist(mouseX,
