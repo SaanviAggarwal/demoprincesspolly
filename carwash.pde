@@ -1,10 +1,14 @@
-//varibales
+//car wash
 
 int washStage = 0;
 
 boolean earnedWashMoney = false;
 
-//draw
+// TOOL POSITION (NEW)
+int toolX = 150;
+int toolY = 550;
+
+//carwash
 
 void drawCarWash()
 {
@@ -42,6 +46,10 @@ void drawCarWash()
 
   textSize(24);
 
+  // TOOL FOLLOWS MOUSE (NEW BEHAVIOUR)
+  toolX = mouseX;
+  toolY = mouseY;
+
   if(washStage == 0)
   {
     text("Step 1: Use the hose!",
@@ -49,8 +57,8 @@ void drawCarWash()
          120);
 
     image(hose,
-          150,
-          550,
+          toolX,
+          toolY,
           180,
           180);
   }
@@ -62,8 +70,8 @@ void drawCarWash()
          120);
 
     image(soapSponge,
-          150,
-          550,
+          toolX,
+          toolY,
           180,
           180);
   }
@@ -75,8 +83,8 @@ void drawCarWash()
          120);
 
     image(cloth,
-          150,
-          550,
+          toolX,
+          toolY,
           180,
           180);
   }
@@ -118,19 +126,19 @@ void carWashMousePressed()
   }
 
   if(washStage == 0 &&
-     dist(mouseX,mouseY,150,550) < 90)
+     dist(mouseX,mouseY,toolX,toolY) < 90)
   {
     washStage = 1;
   }
 
   else if(washStage == 1 &&
-          dist(mouseX,mouseY,150,550) < 90)
+          dist(mouseX,mouseY,toolX,toolY) < 90)
   {
     washStage = 2;
   }
 
   else if(washStage == 2 &&
-          dist(mouseX,mouseY,150,550) < 90)
+          dist(mouseX,mouseY,toolX,toolY) < 90)
   {
     washStage = 3;
   }
