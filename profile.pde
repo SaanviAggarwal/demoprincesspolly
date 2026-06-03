@@ -1,5 +1,17 @@
 // =====================================================
 // PROFILE VARIABLES
+PImage profileIcon;
+PImage character; 
+PImage pinkDress; 
+PImage yellowDress; 
+PImage greenDress; 
+PImage blueDress; 
+PImage purpleDress; 
+PImage crown1;
+PImage crown2;
+PImage crown3;
+PImage crown4;
+PImage crown5;
 // =====================================================
 
 String profilePage = "dress";
