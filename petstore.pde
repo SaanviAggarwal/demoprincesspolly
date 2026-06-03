@@ -1,6 +1,4 @@
-// =====================================================
-// PET STORE VARIABLES
-// =====================================================
+//variables
 
 String chosenPet = "";
 
@@ -13,9 +11,7 @@ boolean ownsPet = false;
 boolean boughtFood = false;
 boolean boughtAccessory = false;
 
-// =====================================================
-// PRICES
-// =====================================================
+// Prices
 
 int dogPrice = 30;
 int catPrice = 25;
@@ -26,9 +22,7 @@ int horsePrice = 50;
 int foodPrice = 10;
 int accessoryPrice = 15;
 
-// =====================================================
-// DRAW PET STORE
-// =====================================================
+//Draw
 
 void drawPetShopPage()
 {
@@ -73,9 +67,7 @@ void drawPetShopPage()
   }
 }
 
-// =====================================================
-// PET PAGE
-// =====================================================
+//pet display
 
 void drawPetSelectionPage()
 {
@@ -119,9 +111,7 @@ void drawPetSelectionPage()
        620);
 }
 
-// =====================================================
-// ITEMS PAGE
-// =====================================================
+//item display
 
 void drawPetItemsPage()
 {
@@ -202,9 +192,7 @@ void drawPetItemsPage()
   }
 }
 
-// =====================================================
-// BUY PET
-// =====================================================
+//buy pet
 
 void buyPet(String petName,
             int petPrice)
@@ -235,9 +223,7 @@ void buyPet(String petName,
   }
 }
 
-// =====================================================
-// MOUSE
-// =====================================================
+//mouse
 
 void petShopMousePressed()
 {
