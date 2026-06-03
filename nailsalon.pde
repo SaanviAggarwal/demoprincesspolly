@@ -1,0 +1,305 @@
+// =====================================================
+// NAIL SALON VARIABLES
+// =====================================================
+
+String salonChoice = "";
+
+boolean clipped = false;
+boolean filed = false;
+
+boolean clipMoney = false;
+boolean fileMoney = false;
+
+int clipTimer = 0;
+int fileTimer = 0;
+
+boolean clippingStarted = false;
+boolean filingStarted = false;
+
+color nailColor = color(255,150,200);
+
+// =====================================================
+// DRAW PAGE
+// =====================================================
+
+void drawSalonPage()
+{
+  background(255,220,230);
+
+  drawWallet();
+
+  drawTimer();
+
+  drawHomeButton();
+
+  fill(255);
+
+  rect(width/2,50,500,70,20);
+
+  fill(0);
+
+  textSize(36);
+
+  text("Princess Polly Nail Salon",
+       width/2,
+       50);
+
+  if(salonChoice.equals(""))
+  {
+    drawChoicePage();
+  }
+  else
+  {
+    drawSalonGame();
+  }
+}
+
+// =====================================================
+// CHOICE PAGE
+// =====================================================
+
+void drawChoicePage()
+{
+  fill(255);
+
+  rect(320,350,300,350,20);
+
+  rect(880,350,300,350,20);
+
+  fill(0);
+
+  textSize(32);
+
+  text("HANDS",320,170);
+
+  text("FEET",880,170);
+
+  image(handsImg,
+        320,
+        350,
+        220,
+        220);
+
+  image(feetImg,
+        880,
+        350,
+        220,
+        220);
+
+  textSize(24);
+
+  text("Choose Hands Or Feet",
+       width/2,
+       620);
+}
+
+// =====================================================
+// GAME
+// =====================================================
+
+void drawSalonGame()
+{
+  if(salonChoice.equals("hands"))
+  {
+    image(handsImg,
+          width/2,
+          320,
+          500,
+          350);
+  }
+
+  if(salonChoice.equals("feet"))
+  {
+    image(feetImg,
+          width/2,
+          320,
+          500,
+          350);
+  }
+
+  // CLIPPING
+
+  if(!clipped)
+  {
+    fill(0);
+
+    textSize(28);
+
+    text("Hold mouse for 5 seconds to clip nails",
+         width/2,
+         100);
+
+    image(nailClipperImg,
+          mouseX,
+          mouseY,
+          180,
+          180);
+
+    if(mousePressed &&
+       !clippingStarted)
+    {
+      clipTimer = millis();
+
+      clippingStarted = true;
+    }
+
+    if(clippingStarted)
+    {
+      int secondsLeft =
+      max(0,
+      5-(millis()-clipTimer)/1000);
+
+      text(secondsLeft,
+           width/2,
+           150);
+
+      if(millis()-clipTimer > 5000)
+      {
+        clipped = true;
+
+        if(!clipMoney)
+        {
+          money += 2;
+
+          clipMoney = true;
+        }
+      }
+    }
+  }
+
+  // FILE
+
+  else if(!filed)
+  {
+    fill(0);
+
+    textSize(28);
+
+    text("Hold mouse for 5 seconds to file nails",
+         width/2,
+         100);
+
+    image(nailFileImg,
+          mouseX,
+          mouseY,
+          180,
+          180);
+
+    if(mousePressed &&
+       !filingStarted)
+    {
+      fileTimer = millis();
+
+      filingStarted = true;
+    }
+
+    if(filingStarted)
+    {
+      int secondsLeft =
+      max(0,
+      5-(millis()-fileTimer)/1000);
+
+      text(secondsLeft,
+           width/2,
+           150);
+
+      if(millis()-fileTimer > 5000)
+      {
+        filed = true;
+
+        if(!fileMoney)
+        {
+          money += 2;
+
+          fileMoney = true;
+        }
+      }
+    }
+  }
+
+  // PAINT
+
+  else
+  {
+    fill(0);
+
+    textSize(32);
+
+    text("Paint The Nails",
+         width/2,
+         100);
+
+    fill(nailColor);
+
+    ellipse(430,330,40,70);
+    ellipse(490,300,40,70);
+    ellipse(550,285,40,70);
+    ellipse(610,300,40,70);
+    ellipse(670,340,40,70);
+
+    image(redBottle,180,620,100,130);
+
+    image(blueBottle,340,620,100,130);
+
+    image(greenBottle,500,620,100,130);
+
+    image(yellowBottle,660,620,100,130);
+
+    image(purpleBottle,820,620,100,130);
+
+    image(pinkBottle,980,620,100,130);
+  }
+}
+
+// =====================================================
+// MOUSE
+// =====================================================
+
+void salonMousePressed()
+{
+  if(homePressed())
+  {
+    currentPage = "index";
+    return;
+  }
+
+  if(salonChoice.equals(""))
+  {
+    if(mouseX > 170 &&
+       mouseX < 470 &&
+       mouseY > 175 &&
+       mouseY < 525)
+    {
+      salonChoice = "hands";
+    }
+
+    if(mouseX > 730 &&
+       mouseX < 1030 &&
+       mouseY > 175 &&
+       mouseY < 525)
+    {
+      salonChoice = "feet";
+    }
+  }
+
+  if(clipped && filed)
+  {
+    if(dist(mouseX,mouseY,180,620) < 60)
+      nailColor = color(255,0,0);
+
+    if(dist(mouseX,mouseY,340,620) < 60)
+      nailColor = color(0,100,255);
+
+    if(dist(mouseX,mouseY,500,620) < 60)
+      nailColor = color(0,200,100);
+
+    if(dist(mouseX,mouseY,660,620) < 60)
+      nailColor = color(255,230,0);
+
+    if(dist(mouseX,mouseY,820,620) < 60)
+      nailColor = color(170,0,255);
+
+    if(dist(mouseX,mouseY,980,620) < 60)
+      nailColor = color(255,100,180);
+  }
+}
