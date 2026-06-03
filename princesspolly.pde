@@ -1,21 +1,27 @@
-//main file
+// =====================================================
+// PRINCESS POLLY WORLD
+// MAIN FILE
+// =====================================================
 
-//
+// ---------- PAGE SYSTEM ----------
 
 String currentPage = "index";
 
-// money and timer
+// ---------- MONEY + TIMER ----------
 
 int money = 100;
 
 int dayTime = 1800; // 30 mins
 
-// button size
+// ---------- STORE BUTTON SIZE ----------
 
 int storeW = 170;
 int storeH = 120;
 
-//steup
+PImage grassBackground;
+// =====================================================
+// SETUP
+// =====================================================
 
 void setup()
 {
@@ -27,10 +33,110 @@ void setup()
 
   textAlign(CENTER,CENTER);
 
-  loadImages();
+  grassBackground = loadImage("grass.png");
+
+  profileIcon = loadImage("profile.png");
+
+  //Main Page 
+  salonImg = loadImage("salon.png");
+  petShopImg = loadImage("petStore.png");
+  iceCreamImg = loadImage("icecream.png");
+  restaurantImg = loadImage("restaurant.png");
+  bedroomImg = loadImage("castle.png");
+  carWashImg = loadImage("carWash1.png");
+  airportImg = loadImage("airport.png");
+  carWashBackground = loadImage("blackBackground.png");
+  handsImg = loadImage("hands.png");
+  feetImg = loadImage("feet.png");
+  
+  //Car Wash
+  carWashBackground = loadImage("blackBackground.png");
+  car = loadImage("car.png"); 
+  hose = loadImage("hose.png");
+  soapSponge = loadImage("soapySponge.png");
+  cloth = loadImage("cloth.png");
+
+  // NAil Salon
+  nailClipperImg = loadImage("nailClipper.png");
+  nailFileImg = loadImage("nailFiler.png");
+  
+  redBottle = loadImage("redNailPolish.png");
+  blueBottle = loadImage("blueBottle.png");
+  greenBottle = loadImage("greenNailPolish.png");
+  yellowBottle = loadImage("yellowNailPolish.png");
+  purpleBottle = loadImage("purpleBottle.png");
+  pinkBottle = loadImage("pinkBottle.png");
+  
+  // Pet Store
+  dog = loadImage("dog.png");
+  cat = loadImage("cat.png");
+  bunny = loadImage("bunny.png");
+  turtle = loadImage("turtle.png");
+  horse = loadImage("horse.png");
+  
+  dogFood = loadImage("dogFood.png");
+  catFood = loadImage("catFood.png");
+  bunnyFood = loadImage("bunnyFood.png");
+  turtleFood = loadImage("turtleFood.png");
+  horseFood = loadImage("horseFood.png");
+  
+  dogAccessory = loadImage("dogItem.png");
+  catAccessory = loadImage("catItem.png");
+  bunnyAccessory = loadImage("bunnyItem.png");
+  turtleAccessory = loadImage("turtleItem.png");
+  horseAccessory = loadImage("horseItem.png");
+    
+  //Restaurant
+    snack1 = loadImage("granola.png"); 
+    snack2 = loadImage("candyBar.png");
+    snack3 = loadImage("fruitCup.png");
+    snack4 = loadImage("popcorn.png");
+    snack5 = loadImage("chips.png");
+  
+    mainCourse1 = loadImage("ramen.png"); 
+    mainCourse2 = loadImage("sushi.png");
+    mainCourse3 = loadImage("soup.png");
+    mainCourse4 = loadImage("spagetti.png");
+    mainCourse5 = loadImage("pizza.png");
+  
+    dessert1 = loadImage("cakePop.png"); 
+    dessert2 = loadImage("cake.png"); 
+    dessert3 = loadImage("brownie.png"); 
+    dessert4 = loadImage("cookies.png"); 
+    dessert5 = loadImage("cupcake.png"); 
+  
+    drink1 = loadImage("yellowDrink.png"); 
+    drink2 = loadImage("water.png"); 
+    drink3 = loadImage("sunsetDrink.png"); 
+    drink4 = loadImage("champagne.png");
+    drink5 = loadImage("cola.png");
+    
+  //Icecream Store 
+    cone = loadImage("cone.png");
+    cup = loadImage("cup.png");
+    vanilla = loadImage("vanilla.png");
+    chocolate = loadImage("chocolate.png");
+    strawberry = loadImage("strawberry.png");
+    mango = loadImage("mango.png");
+    lime = loadImage("lime.png");
+  
+  //profile 
+    character = loadImage ("character.png"); 
+    pinkDress = loadImage ("pinkDress.png"); 
+    yellowDress = loadImage ("yellowDress.png"); 
+    greenDress = loadImage ("greenDress.png"); 
+    blueDress = loadImage ("blueDress.png"); 
+    purpleDress = loadImage ("purpleDress.png"); 
+    crown1 = loadImage ("crown1.png");
+    crown2 = loadImage ("crown2.png");
+    crown3 = loadImage ("crown3.png");
+    crown4 = loadImage ("crown4.png");
+    crown5 = loadImage ("crown5.png");
 }
 
-//draw
+// =====================================================
+// DRAW
+// =====================================================
 
 void draw()
 {
@@ -77,7 +183,9 @@ void draw()
   }
 }
 
-//timer
+// =====================================================
+// TIMER
+// =====================================================
 
 void updateTimer()
 {
@@ -87,7 +195,9 @@ void updateTimer()
   }
 }
 
-//shared
+// =====================================================
+// SHARED HUD
+// =====================================================
 
 void drawWallet()
 {
@@ -135,7 +245,9 @@ void drawHomeButton()
   text("HOME",1050,50);
 }
 
-//mouse routing
+// =====================================================
+// MOUSE ROUTING
+// =====================================================
 
 void mousePressed()
 {
@@ -180,7 +292,9 @@ void mousePressed()
   }
 }
 
-//home button
+// =====================================================
+// HOME BUTTON CHECK
+// =====================================================
 
 boolean homePressed()
 {
@@ -190,7 +304,9 @@ boolean homePressed()
          mouseY < 75;
 }
 
-//hitbox
+// =====================================================
+// STORE HITBOX
+// =====================================================
 
 boolean overButton(int x,int y)
 {
