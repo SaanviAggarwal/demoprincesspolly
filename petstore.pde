@@ -1,5 +1,4 @@
-// =====================================================
-// PET STORE VARIABLES
+
 PImage dog;
 PImage cat;
 PImage bunny;
@@ -23,7 +22,7 @@ PImage catAccessory;
 PImage bunnyAccessory;
 PImage turtleAccessory;
 PImage horseAccessory;
-// =====================================================
+
 
 String chosenPet = "";
 
@@ -36,9 +35,7 @@ boolean ownsPet = false;
 boolean boughtFood = false;
 boolean boughtAccessory = false;
 
-// =====================================================
-// PRICES
-// =====================================================
+// prices
 
 int dogPrice = 30;
 int catPrice = 25;
@@ -49,9 +46,7 @@ int horsePrice = 50;
 int foodPrice = 10;
 int accessoryPrice = 15;
 
-// =====================================================
-// DRAW PET STORE
-// =====================================================
+//draw 
 
 void drawPetShopPage()
 {
@@ -69,9 +64,7 @@ void drawPetShopPage()
 
   textSize(36);
 
-  text("Princess Polly Pet Store",
-       width/2,
-       50);
+  text("Princess Polly Pet Store",width/2, 50);
 
   fill(255,220,220);
 
@@ -96,9 +89,7 @@ void drawPetShopPage()
   }
 }
 
-// =====================================================
-// PET PAGE
-// =====================================================
+//pet page
 
 void drawPetSelectionPage()
 {
@@ -127,11 +118,7 @@ void drawPetSelectionPage()
 
   fill(255);
 
-  rect(width/2,
-       620,
-       200,
-       60,
-       20);
+  rect(width/2,620,200,60,20);
 
   fill(0);
 
@@ -142,9 +129,7 @@ void drawPetSelectionPage()
        620);
 }
 
-// =====================================================
-// ITEMS PAGE
-// =====================================================
+//items
 
 void drawPetItemsPage()
 {
@@ -225,9 +210,7 @@ void drawPetItemsPage()
   }
 }
 
-// =====================================================
-// BUY PET
-// =====================================================
+//buy pet
 
 void buyPet(String petName,
             int petPrice)
@@ -258,9 +241,7 @@ void buyPet(String petName,
   }
 }
 
-// =====================================================
-// MOUSE
-// =====================================================
+//mouse
 
 void petShopMousePressed()
 {
