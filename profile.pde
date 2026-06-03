@@ -42,20 +42,16 @@ void drawProfilePage()
   text("Princess Profile",
        width/2,
        50);
-
-  image(character,
-        width/2,
-        380,
-        250,
-        450);
+    //https://processing.org/reference/width.html
+  image(character,width/2,310,220,350);
 
   if(selectedDress != null)
   {
     image(selectedDress,
           width/2,
-          380,
-          250,
-          450);
+          420,
+          175,
+          300);
   }
 
   if(selectedCrown != null)
