@@ -1,4 +1,18 @@
-//variables
+// =====================================================
+PImage handsImg;
+PImage feetImg;
+
+PImage nailClipperImg;
+PImage nailFileImg;
+
+// nail polish bottles
+PImage redBottle;
+PImage blueBottle;
+PImage greenBottle;
+PImage yellowBottle;
+PImage purpleBottle;
+PImage pinkBottle;
+// =====================================================
 
 String salonChoice = "";
 
@@ -15,7 +29,10 @@ boolean clippingStarted = false;
 boolean filingStarted = false;
 
 color nailColor = color(255,150,200);
-//draw?
+
+// =====================================================
+// DRAW PAGE
+// =====================================================
 
 void drawSalonPage()
 {
@@ -49,7 +66,9 @@ void drawSalonPage()
   }
 }
 
-//Choose
+// =====================================================
+// CHOICE PAGE
+// =====================================================
 
 void drawChoicePage()
 {
@@ -86,7 +105,9 @@ void drawChoicePage()
        620);
 }
 
-//game
+// =====================================================
+// GAME
+// =====================================================
 
 void drawSalonGame()
 {
@@ -241,7 +262,10 @@ void drawSalonGame()
     image(pinkBottle,980,620,100,130);
   }
 }
-// mousy
+
+// =====================================================
+// MOUSE
+// =====================================================
 
 void salonMousePressed()
 {
