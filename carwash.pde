@@ -1,4 +1,11 @@
-//car wash
+// =====================================================
+// CarWash variables 
+PImage carWashBackground;
+PImage car; 
+PImage hose;
+PImage soapSponge;
+PImage cloth;
+// =====================================================
 
 int washStage = 0;
 
