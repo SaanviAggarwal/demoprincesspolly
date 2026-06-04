@@ -1,21 +1,19 @@
-// =====================================================
 // CarWash variables 
 PImage carWashBackground;
 PImage car; 
 PImage hose;
 PImage soapSponge;
 PImage cloth;
-// =====================================================
 
 int washStage = 0;
 
 boolean earnedWashMoney = false;
 
-// TOOL POSITION (NEW)
+// tool position
 int toolX = 150;
 int toolY = 550;
 
-//carwash
+// carwash
 
 void drawCarWash()
 {
@@ -53,7 +51,8 @@ void drawCarWash()
 
   textSize(24);
 
-  // TOOL FOLLOWS MOUSE (NEW BEHAVIOUR)
+  // TOOL FOLLOWS MOUSE
+
   toolX = mouseX;
   toolY = mouseY;
 
@@ -72,28 +71,16 @@ void drawCarWash()
 
   else if(washStage == 1)
   {
-    text("Step 2: Use the sponge!",
-         width/2,
-         120);
+    text("Step 2: Use the sponge!",width/2,120);
 
-    image(soapSponge,
-          toolX,
-          toolY,
-          180,
-          180);
+    image(soapSponge, toolX, toolY,180, 180);
   }
 
   else if(washStage == 2)
   {
-    text("Step 3: Dry the car!",
-         width/2,
-         120);
+    text("Step 3: Dry the car!",width/2,120);
 
-    image(cloth,
-          toolX,
-          toolY,
-          180,
-          180);
+    image(cloth,toolX, toolY, 180,180);
   }
 
   else
@@ -119,10 +106,28 @@ void drawCarWash()
     text("+$25 earned",
          width/2,
          180);
+
+    // FINISH BUTTON
+
+    fill(255);
+
+    rect(width/2,
+         550,
+         220,
+         70,
+         20);
+
+    fill(0);
+
+    textSize(28);
+
+    text("FINISH",
+         width/2,
+         550);
   }
 }
 
-//mouse
+// mouse
 
 void carWashMousePressed()
 {
@@ -150,9 +155,19 @@ void carWashMousePressed()
     washStage = 3;
   }
 
+  // FINISH BUTTON
+
   else if(washStage >= 3)
   {
-    washStage = 0;
-    earnedWashMoney = false;
+    if(mouseX > width/2-110 &&
+       mouseX < width/2+110 &&
+       mouseY > 515 &&
+       mouseY < 585)
+    {
+      washStage = 0;
+      earnedWashMoney = false;
+
+      currentPage = "index";
+    }
   }
 }
