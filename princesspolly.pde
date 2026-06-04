@@ -1,27 +1,18 @@
-// =====================================================
-// PRINCESS POLLY WORLD
-// MAIN FILE
-// =====================================================
-
-// ---------- PAGE SYSTEM ----------
-
 String currentPage = "index";
 
-// ---------- MONEY + TIMER ----------
+// money and timer
 
 int money = 100;
 
 int dayTime = 1800; // 30 mins
 
-// ---------- STORE BUTTON SIZE ----------
+// button
 
 int storeW = 170;
 int storeH = 120;
 
 PImage grassBackground;
-// =====================================================
-// SETUP
-// =====================================================
+//setup
 
 void setup()
 {
@@ -121,12 +112,7 @@ void setup()
     lime = loadImage("lime.png");
   
   //profile 
-    character = loadImage ("character.png"); 
-    pinkDress = loadImage ("pinkDress.png"); 
-    yellowDress = loadImage ("yellowDress.png"); 
-    greenDress = loadImage ("greenDress.png"); 
-    blueDress = loadImage ("blueDress.png"); 
-    purpleDress = loadImage ("purpleDress.png"); 
+    character = loadImage ("character.png");  
     crown1 = loadImage ("crown1.png");
     crown2 = loadImage ("crown2.png");
     crown3 = loadImage ("crown3.png");
@@ -134,9 +120,7 @@ void setup()
     crown5 = loadImage ("crown5.png");
 }
 
-// =====================================================
-// DRAW
-// =====================================================
+//draw
 
 void draw()
 {
@@ -183,9 +167,7 @@ void draw()
   }
 }
 
-// =====================================================
-// TIMER
-// =====================================================
+//timer
 
 void updateTimer()
 {
@@ -195,9 +177,7 @@ void updateTimer()
   }
 }
 
-// =====================================================
-// SHARED HUD
-// =====================================================
+//hud
 
 void drawWallet()
 {
@@ -245,9 +225,7 @@ void drawHomeButton()
   text("HOME",1050,50);
 }
 
-// =====================================================
-// MOUSE ROUTING
-// =====================================================
+//mouse routing
 
 void mousePressed()
 {
@@ -292,9 +270,7 @@ void mousePressed()
   }
 }
 
-// =====================================================
-// HOME BUTTON CHECK
-// =====================================================
+//home button
 
 boolean homePressed()
 {
@@ -304,9 +280,7 @@ boolean homePressed()
          mouseY < 75;
 }
 
-// =====================================================
-// STORE HITBOX
-// =====================================================
+//hitbox
 
 boolean overButton(int x,int y)
 {
