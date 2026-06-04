@@ -7,7 +7,6 @@ PImage strawberry;
 PImage mango; 
 PImage lime; 
 
-
 String icecreamPage = "container";
 
 String customerOrder = "";
@@ -154,6 +153,12 @@ void drawCompletePage()
        width/2,
        300);
 
+  textSize(22);
+
+  text("Play Again or click HOME to visit other places!",
+       width/2,
+       360);
+
   fill(255);
 
   rect(width/2,
@@ -172,6 +177,7 @@ void drawCompletePage()
 }
 
 //random
+
 void generateOrder()
 {
   int randomOrder =
