@@ -1,10 +1,10 @@
- PImage handsImg;
+
+PImage handsImg;
 PImage feetImg;
 
 PImage nailClipperImg;
 PImage nailFileImg;
 
-// nail polish bottles
 PImage redBottle;
 PImage blueBottle;
 PImage greenBottle;
@@ -20,6 +20,8 @@ boolean filed = false;
 boolean clipMoney = false;
 boolean fileMoney = false;
 
+boolean colorChosen = false;
+
 int clipTimer = 0;
 int fileTimer = 0;
 
@@ -27,8 +29,6 @@ boolean clippingStarted = false;
 boolean filingStarted = false;
 
 color nailColor = color(255,150,200);
-
-//draw
 
 void drawSalonPage()
 {
@@ -39,11 +39,9 @@ void drawSalonPage()
   drawHomeButton();
 
   fill(255);
-
   rect(width/2,50,500,70,20);
 
   fill(0);
-
   textSize(36);
 
   text("Princess Polly Nail Salon",
@@ -60,8 +58,6 @@ void drawSalonPage()
   }
 }
 
-//choice
-
 void drawChoicePage()
 {
   fill(255);
@@ -76,31 +72,17 @@ void drawChoicePage()
   text("HANDS",320,170);
   text("FEET",880,170);
 
-  image(handsImg,
-        320,
-        350,
-        220,
-        220);
+  image(handsImg, 320,350,220,220);
 
-  image(feetImg,
-        880,
-        350,
-        220,
-        220);
+  image(feetImg,880, 350,220,220);
 
   textSize(24);
 
-  text("Choose Hands Or Feet",
-       width/2,
-       620);
+  text("Choose Hands Or Feet", width/2,620);
 }
-
-//game
 
 void drawSalonGame()
 {
-  // graphics during file and clip
-
   if(!clipped || !filed)
   {
     if(salonChoice.equals("hands"))
@@ -114,15 +96,9 @@ void drawSalonGame()
 
     if(salonChoice.equals("feet"))
     {
-      image(feetImg,
-            width/2,
-            320,
-            500,
-            350);
+      image(feetImg,width/2,320,500,350);
     }
   }
-
-  // CLIPPING
 
   if(!clipped)
   {
@@ -130,9 +106,7 @@ void drawSalonGame()
 
     textSize(28);
 
-    text("Hold mouse for 5 seconds to clip nails",
-         width/2,
-         100);
+    text("Hold mouse for 5 seconds to clip nails",width/2,100);
 
     image(nailClipperImg, mouseX, mouseY, 180, 180);
 
@@ -163,8 +137,6 @@ void drawSalonGame()
       }
     }
   }
-
-  // FILE
 
   else if(!filed)
   {
@@ -206,8 +178,6 @@ void drawSalonGame()
     }
   }
 
-  // PAINT
-
   else
   {
     fill(0);
@@ -225,7 +195,7 @@ void drawSalonGame()
     ellipse(350,285,40,70);
     ellipse(410,300,40,70);
     ellipse(470,340,40,70);
-    
+
     ellipse(580,330,40,70);
     ellipse(640,300,40,70);
     ellipse(700,285,40,70);
@@ -238,16 +208,26 @@ void drawSalonGame()
     image(yellowBottle,660,620,100,130);
     image(purpleBottle,820,620,100,130);
     image(pinkBottle,980,620,100,130);
+
+    if(colorChosen)
+    {
+      fill(255);
+
+      rect(600,530,200,60,20);
+
+      fill(0);
+
+      textSize(28);
+
+      text("FINISH",600,530);
+    }
   }
 }
-
-//mouse
 
 void salonMousePressed()
 {
   if(homePressed())
   {
-    // Reset
     salonChoice = "";
 
     clipped = false;
@@ -258,6 +238,8 @@ void salonMousePressed()
 
     clippingStarted = false;
     filingStarted = false;
+
+    colorChosen = false;
 
     nailColor = color(255,150,200);
 
@@ -287,21 +269,65 @@ void salonMousePressed()
   if(clipped && filed)
   {
     if(dist(mouseX,mouseY,180,620) < 60)
+    {
       nailColor = color(255,0,0);
+      colorChosen = true;
+    }
 
     if(dist(mouseX,mouseY,340,620) < 60)
+    {
       nailColor = color(0,100,255);
+      colorChosen = true;
+    }
 
     if(dist(mouseX,mouseY,500,620) < 60)
+    {
       nailColor = color(0,200,100);
+      colorChosen = true;
+    }
 
     if(dist(mouseX,mouseY,660,620) < 60)
+    {
       nailColor = color(255,230,0);
+      colorChosen = true;
+    }
 
     if(dist(mouseX,mouseY,820,620) < 60)
+    {
       nailColor = color(170,0,255);
+      colorChosen = true;
+    }
 
     if(dist(mouseX,mouseY,980,620) < 60)
+    {
       nailColor = color(255,100,180);
+      colorChosen = true;
+    }
+
+    if(colorChosen)
+    {
+      if(mouseX > 500 &&
+         mouseX < 700 &&
+         mouseY > 500 &&
+         mouseY < 560)
+      {
+        salonChoice = "";
+
+        clipped = false;
+        filed = false;
+
+        clipMoney = false;
+        fileMoney = false;
+
+        clippingStarted = false;
+        filingStarted = false;
+
+        nailColor = color(255,150,200);
+        colorChosen = false;
+
+        currentPage = "index";
+      }
+    }
   }
 }
+
