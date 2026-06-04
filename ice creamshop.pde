@@ -7,7 +7,7 @@ PImage strawberry;
 PImage mango; 
 PImage lime; 
 
-String icecreamPage = "container";
+String icecreamPage = "container"; // https://processing.org/reference/boolean.html
 
 String customerOrder = "";
 
@@ -37,21 +37,17 @@ void drawIcecreamStore()
 
   textSize(36);
 
-  text("Princess Polly Ice Cream Store",
-       width/2,
-       50);
+  text("Princess Polly Ice Cream Store",width/2,50);
 
   fill(0);
 
   textSize(24);
 
-  text(icecreamMessage,
-       width/2,
-       120);
+  text(icecreamMessage,width/2,120);
 
   if(icecreamPage.equals("container"))
   {
-    drawContainerPage();
+    drawContainerPage(); //https://processing.org/reference/draw_.html
   }
 
   else if(icecreamPage.equals("flavor"))
@@ -67,37 +63,23 @@ void drawIcecreamStore()
 
 //container
 
-void drawContainerPage()
+void drawContainerPage() //https://processing.org/reference/draw_.html
 {
   fill(0);
 
   textSize(30);
 
-  text("Choose Cone Or Cup",
-       width/2,
-       180);
+  text("Choose Cone Or Cup",width/2,180);
 
-  image(cone,
-        350,
-        350,
-        250,
-        250);
+  image(cone, 350, 350,250, 250);
 
-  image(cup,
-        850,
-        350,
-        250,
-        250);
+  image(cup, 850, 350,250,250);
 
   textSize(22);
 
-  text("+$5 Reward",
-       350,
-       520);
+  text("+$5 Reward",350,520);
 
-  text("+$10 Reward",
-       850,
-       520);
+  text("+$10 Reward",850,520);
 }
 
 //flavour
@@ -108,17 +90,11 @@ void drawFlavorPage()
 
   textSize(28);
 
-  text("Customer Wants:",
-       width/2,
-       160);
+  text("Customer Wants:",width/2,160);
 
   fill(255);
 
-  rect(width/2,
-       220,
-       300,
-       60,
-       20);
+  rect(width/2,220, 300, 60,20);
 
   fill(0);
 
@@ -145,7 +121,7 @@ void drawCompletePage()
        width/2,
        220);
 
-  fill(0);
+  fill(0); //https://processing.org/reference/fill_.html
 
   textSize(30);
 
@@ -178,7 +154,7 @@ void drawCompletePage()
 
 //random
 
-void generateOrder()
+void generateOrder() // https://processing.org/reference/else.html
 {
   int randomOrder =
   int(random(5));
@@ -207,7 +183,7 @@ void generateOrder()
 
 //
 
-void checkFlavor(String flavor)
+void checkFlavor(String flavor) // https://processing.org/reference/String_equals_.html
 {
   if(flavor.equals(customerOrder))
   {
@@ -251,7 +227,7 @@ void icecreamStoreMousePressed()
       "Make the customer's order!";
     }
 
-    if(dist(mouseX,mouseY,850,350) < 125)
+    if(dist(mouseX,mouseY,850,350) < 125) //https://processing.org/reference/mouseX.html
     {
       icecreamReward = 10;
 
@@ -264,7 +240,7 @@ void icecreamStoreMousePressed()
     }
   }
 
-  else if(icecreamPage.equals("flavor"))
+  else if(icecreamPage.equals("flavor")) //
   {
     if(dist(mouseX,mouseY,150,420) < 75)
       checkFlavor("Vanilla");
@@ -295,7 +271,7 @@ void icecreamStoreMousePressed()
 
       icecreamMessage = "";
 
-      orderCompleted = false;
+      orderCompleted = false; //https://processing.org/reference/false.html
     }
   }
 }
