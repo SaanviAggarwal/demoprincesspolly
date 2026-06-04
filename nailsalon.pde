@@ -44,9 +44,7 @@ void drawSalonPage()
   fill(0);
   textSize(36);
 
-  text("Princess Polly Nail Salon",
-       width/2,
-       50);
+  text("Princess Polly Nail Salon",width/2,50);
 
   if(salonChoice.equals(""))
   {
@@ -83,15 +81,11 @@ void drawChoicePage()
 
 void drawSalonGame()
 {
-  if(!clipped || !filed)
+  if(!clipped || !filed) // https://processing.org/reference/if.html
   {
     if(salonChoice.equals("hands"))
     {
-      image(handsImg,
-            width/2,
-            320,
-            500,
-            350);
+      image(handsImg,width/2,320,500,350);
     }
 
     if(salonChoice.equals("feet"))
@@ -110,7 +104,7 @@ void drawSalonGame()
 
     image(nailClipperImg, mouseX, mouseY, 180, 180);
 
-    if(mousePressed && !clippingStarted)
+    if(mousePressed && !clippingStarted) //https://processing.org/reference/mousePressed_.html
     {
       clipTimer = millis();
       clippingStarted = true;
@@ -148,9 +142,9 @@ void drawSalonGame()
          width/2,
          100);
 
-    image(nailFileImg,mouseX,mouseY,80,180);
+    image(nailFileImg,mouseX,mouseY,80,180); //https://processing.org/reference/mouseX.html
 
-    if(mousePressed && !filingStarted)
+    if(mousePressed && !filingStarted) //
     {
       fileTimer = millis();
       filingStarted = true;
@@ -189,7 +183,7 @@ void drawSalonGame()
          100);
 
     fill(nailColor);
-
+// https://processing.org/reference/ellipse_.html
     ellipse(230,330,40,70);
     ellipse(290,300,40,70);
     ellipse(350,285,40,70);
@@ -224,7 +218,7 @@ void drawSalonGame()
   }
 }
 
-void salonMousePressed()
+void salonMousePressed() // https://processing.org/reference/false.html
 {
   if(homePressed())
   {
@@ -252,7 +246,7 @@ void salonMousePressed()
     if(mouseX > 170 &&
        mouseX < 470 &&
        mouseY > 175 &&
-       mouseY < 525)
+       mouseY < 525) // https://processing.org/reference/logicalAND.html  - logic refrence for &&
     {
       salonChoice = "hands";
     }
