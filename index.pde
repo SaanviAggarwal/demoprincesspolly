@@ -77,9 +77,7 @@ void drawIndexPage()
        1050,
        50);
 
-  // =========================
-  // SHOPS (HIDDEN WHEN INFO OPEN)
-  // =========================
+  //shops
 
   if(!showInfo)
   {
