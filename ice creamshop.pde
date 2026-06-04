@@ -1,4 +1,3 @@
-// =====================================================
 // icecream Store Variables 
 PImage cone; 
 PImage cup; 
@@ -7,7 +6,7 @@ PImage chocolate;
 PImage strawberry; 
 PImage mango; 
 PImage lime; 
-// =====================================================
+
 
 String icecreamPage = "container";
 
@@ -19,9 +18,7 @@ int icecreamReward = 0;
 
 boolean orderCompleted = false;
 
-// =====================================================
-// DRAW PAGE
-// =====================================================
+//draw
 
 void drawIcecreamStore()
 {
@@ -69,9 +66,7 @@ void drawIcecreamStore()
   }
 }
 
-// =====================================================
-// CONTAINER PAGE
-// =====================================================
+//container
 
 void drawContainerPage()
 {
@@ -106,9 +101,7 @@ void drawContainerPage()
        520);
 }
 
-// =====================================================
-// FLAVOR PAGE
-// =====================================================
+//flavour
 
 void drawFlavorPage()
 {
@@ -141,9 +134,7 @@ void drawFlavorPage()
   image(lime,1050,420,150,150);
 }
 
-// =====================================================
-// COMPLETE PAGE
-// =====================================================
+//page
 
 void drawCompletePage()
 {
@@ -180,10 +171,7 @@ void drawCompletePage()
        500);
 }
 
-// =====================================================
-// RANDOM ORDER
-// =====================================================
-
+//random
 void generateOrder()
 {
   int randomOrder =
@@ -211,9 +199,7 @@ void generateOrder()
   }
 }
 
-// =====================================================
-// CHECK FLAVOR
-// =====================================================
+//
 
 void checkFlavor(String flavor)
 {
@@ -235,9 +221,7 @@ void checkFlavor(String flavor)
   }
 }
 
-// =====================================================
-// MOUSE
-// =====================================================
+//mouse
 
 void icecreamStoreMousePressed()
 {
