@@ -1,12 +1,10 @@
-
 PImage dog;
 PImage cat;
 PImage bunny;
 PImage turtle;
 PImage horse;
 
-
-// food flicks
+// food pics
 
 PImage dogFood;
 PImage catFood;
@@ -14,15 +12,13 @@ PImage bunnyFood;
 PImage turtleFood;
 PImage horseFood;
 
-
-//  ACCESSORY pics
+// accessory pics
 
 PImage dogAccessory;
 PImage catAccessory;
 PImage bunnyAccessory;
 PImage turtleAccessory;
 PImage horseAccessory;
-
 
 String chosenPet = "";
 
@@ -46,7 +42,7 @@ int horsePrice = 50;
 int foodPrice = 10;
 int accessoryPrice = 15;
 
-//draw 
+// draw
 
 void drawPetShopPage()
 {
@@ -57,23 +53,17 @@ void drawPetShopPage()
   drawHomeButton();
 
   fill(255);
-
   rect(width/2,50,500,70,20);
 
   fill(0);
-
   textSize(36);
-
-  text("Princess Polly Pet Store",width/2, 50);
+  text("Princess Polly Pet Store", width/2, 50);
 
   fill(255,220,220);
-
   rect(width/2,110,700,40,20);
 
   fill(0);
-
   textSize(20);
-
   text(petMessage,
        width/2,
        110);
@@ -82,14 +72,13 @@ void drawPetShopPage()
   {
     drawPetSelectionPage();
   }
-
   else if(petPage.equals("items"))
   {
     drawPetItemsPage();
   }
 }
 
-//pet page
+// pet page
 
 void drawPetSelectionPage()
 {
@@ -129,7 +118,7 @@ void drawPetSelectionPage()
        620);
 }
 
-//items
+// items
 
 void drawPetItemsPage()
 {
@@ -208,9 +197,26 @@ void drawPetItemsPage()
          850,
          560);
   }
+
+  // FINISH BUTTON
+
+  if(boughtFood && boughtAccessory)
+  {
+    fill(255);
+
+    rect(width/2,620,220,60,20);
+
+    fill(0);
+
+    textSize(28);
+
+    text("FINISH",
+         width/2,
+         620);
+  }
 }
 
-//buy pet
+// buy pet
 
 void buyPet(String petName,
             int petPrice)
@@ -241,12 +247,14 @@ void buyPet(String petName,
   }
 }
 
-//mouse
+// mouse
 
 void petShopMousePressed()
 {
   if(homePressed())
   {
+    resetPetShop();
+
     currentPage = "index";
     return;
   }
@@ -338,5 +346,35 @@ void petShopMousePressed()
         }
       }
     }
+
+    // FINISH BUTTON
+
+    if(boughtFood &&
+       boughtAccessory &&
+       mouseX > width/2-110 &&
+       mouseX < width/2+110 &&
+       mouseY > 590 &&
+       mouseY < 650)
+    {
+      resetPetShop();
+
+      currentPage = "index";
+    }
   }
+}
+
+// reset
+
+void resetPetShop()
+{
+  chosenPet = "";
+
+  petMessage = "";
+
+  petPage = "choose";
+
+  ownsPet = false;
+
+  boughtFood = false;
+  boughtAccessory = false;
 }
