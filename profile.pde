@@ -1,5 +1,4 @@
-// =====================================================
-// PROFILE VARIABLES
+
 PImage profileIcon;
 PImage character; 
 PImage pinkDress; 
@@ -12,16 +11,13 @@ PImage crown2;
 PImage crown3;
 PImage crown4;
 PImage crown5;
-// =====================================================
 
 String profilePage = "dress";
 
 PImage selectedDress = null;
 PImage selectedCrown = null;
 
-// =====================================================
-// DRAW PROFILE PAGE
-// =====================================================
+//draw
 
 void drawProfilePage()
 {
@@ -73,9 +69,7 @@ void drawProfilePage()
   }
 }
 
-// =====================================================
-// DRESS PAGE
-// =====================================================
+//dress
 
 void drawDressPage()
 {
@@ -102,9 +96,7 @@ void drawDressPage()
   text("NEXT",width/2,650);
 }
 
-// =====================================================
-// CROWN PAGE
-// =====================================================
+//crown
 
 void drawCrownPage()
 {
@@ -131,9 +123,7 @@ void drawCrownPage()
   text("FINISH",width/2,650);
 }
 
-// =====================================================
-// MOUSE
-// =====================================================
+//mouse
 
 void profileMousePressed()
 {
